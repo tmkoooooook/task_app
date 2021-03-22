@@ -1,0 +1,35 @@
+<h2>スケジュール詳細</h2>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @schedule.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @schedule.start_day.strftime("%Y年 %m月%d日 %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @schedule.end_day.strftime("%Y年 %m月%d日 %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <% if @schedule.all_day == true %>
+      <% all_day = "◯" %>
+    <% else %>
+      <% all_day = "" %>
+    <% end %>
+    <td><%= all_day %></td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= @schedule.memo %></td>
+  </tr>
+</table>
+<div class="">
+  <ul>
+    <li><%= link_to "スケジュール一覧に戻る", :schedules %></li>
+    <li><%= link_to "スケジュールを編集する", [:edit, @schedule] %></li>
+    <li><%= link_to "スケジュール削除", schedule_path, method: :delete, data: {confirm: "本当に削除しますか？"} %></li>
+  </ul>
+</div>

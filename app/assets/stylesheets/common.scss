@@ -1,0 +1,68 @@
+header{
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: #c00000;
+  color: #fff;
+}
+footer{
+  width: 100%;
+  padding:10px;
+  margin-top: 30px;
+  background-color: #c00000;
+  color: #fff;
+  position: absolute;
+  bottom: 0px;
+}
+body{
+  margin: 0;
+}
+
+table{
+  border-collapse: collapse;
+}
+table th, table td{
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+table th{
+  background-color: #ffdfdf;
+}
+table td{
+  background-color: #ffefef;
+  text-align: center;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+.textarea{
+  width: 350px;
+  height: 200px;
+}
+input{
+  width: 100%;
+  font-size: 16px;
+  padding: 5px;
+  &[type="submit"]{
+    width: auto;
+  }
+  &[value="ソート"]{
+    font-size: 12px;
+    padding: 0 5px;
+  }
+}
+form[action="/schedules/search"]{
+  margin-bottom: 5px;
+}
+.container{
+  margin-left: 10px;
+}
+.notice{
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 0;
+  width: auto;
+  border: 2px solid #ffcacaaa;
+  background-color: #ffeeeeaa;
+}
