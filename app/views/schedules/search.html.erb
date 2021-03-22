@@ -1,0 +1,48 @@
+<h2>スケジュール一覧</h2>
+<% if flash.notice %>
+  <p class="notice"><%= flash.notice %></p>
+<% end %>
+<%= form_with model: @schedules, url: search_schedules_path, method: :get, local: true do |f| %>
+  <%= f.select :keyword, [['更新日時' , 'update'],['開始日' , 'start'],['終了日', 'end']] %>
+  <%= f.submit "ソート" %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日時</th>
+      <th>確認</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedules.each do |sche| %>
+    <tr>
+      <td><%= sche.id %></td>
+      <td><%= sche.title %></td>
+      <td><%= sche.start_day.strftime("%Y年 %m月%d日 %H:%M") %></td>
+      <td><%= sche.end_day.strftime("%Y年 %m月%d日 %H:%M") %></td>
+      <% if sche.all_day == true %>
+        <% all_day = "◯" %>
+      <% else %>
+        <% all_day = "" %>
+      <% end %>
+      <td><%= all_day %></td>
+      <td><%= sche.updated_at.to_s(:datetime_jp) %></td>
+      <td><%= link_to "確認" , sche %></td>
+      <td><%= link_to "編集" , [:edit, sche]%></td>
+      <td><%= link_to "削除" , sche, method: :delete, data: { confirm: "本当に削除しますか" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="">
+  <ul>
+    <li><%= link_to "スケジュール新規登録", :new_schedule %></li>
+  </ul>
+</div>

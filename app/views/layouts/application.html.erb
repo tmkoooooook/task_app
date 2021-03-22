@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+      <h1>
+        現在の日時：<%= Time.now.to_s(:datetime_jp) %><%= render "shared/partial" %>
+      </h1>
+    </footer>
   </body>
 </html>
